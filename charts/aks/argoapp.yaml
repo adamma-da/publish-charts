@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: crossplane-demo
+spec:
+  destination:
+    name: ''
+    namespace: openshift-gitops
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: ''
+    repoURL: 'https://artifactory.sdx.corp/artifactory/sdx-helm-dev-virtual'
+    targetRevision: 1.0.0
+    chart: crossplane-demo
+  project: default
+  syncPolicy:
+    automated: null
